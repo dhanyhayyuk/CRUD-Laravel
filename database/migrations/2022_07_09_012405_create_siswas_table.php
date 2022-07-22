@@ -17,7 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string('nama',100);
             $table->longText('alamat',100);
-            $table->date('tanggallahir');
+         
+            $table->string('ttl');
+            $table->string('nohp');
+            $table->string('email');
+            $table->string('jabatan');
+
             $table->softDeletes();
             $table->timestamps();
         });

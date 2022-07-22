@@ -10,6 +10,7 @@
       <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css"/> 
 <section>
     <div class="container-fluid mt-5 me-5" >
+       
         <div class="row">
             <div class="col-lg">
                 <h1 class="mb-3" style="text-align: center;color:rgb(0, 119, 255)">Daftar Siswa</h1>
@@ -17,7 +18,7 @@
         </div>
            <div class="row">
             <div class="col-lg">
-           <a href="{{url ('create')}}" class="btn btn-outline-primary mb-3 ms-0 "><i class="bi bi-plus-square"></i>  Tambah Siswa</a>
+           <a href="{{url ('guru/create')}}" class="btn btn-outline-primary mb-3 ms-0 "><i class="bi bi-plus-square"></i>  Tambah Siswa</a>
            </div>
         </div>
             <div class="table-responsive">
@@ -27,8 +28,11 @@
                         <th scope="col">#</th>
                         <th scope="col">Nama</th>
                         <th scope="col">Alamat</th>
-                        <th scope="col">Tanggal Lahir</th>
+                        <th scope="col">TTL</th>
+                        <th scope="col">No.Hp</th>
+                        <th scope="col">Email</th>
                         <th scope="col">Action</th>
+                        
                        
                       </tr>
                     </thead>
@@ -38,13 +42,20 @@
                             
                         <tr>
                             <td>{{$i++}}</td>
-                            <td>{{$data->nama}}</td>
+                            <td>{{$data->nama}} /// <p class="d-inline btn-warning">{{$data->jabatan}}</p> </td>
                             <td>{{$data->alamat}}</td>
-                            <td>{{$data->tanggallahir}}</td>
+                            <td>{{$data->ttl}}</td>
+                            <td>
+                                <div class="btn-group">
+                             <a class="btn " href="http://wa.me/{{$data->nohp}}" target="_blank" role="button" style="background-color: #3dc14f"><i class="bi bi-whatsapp me-1"></i></a>
+                             <a class="btn btn-outline-success" href="http://wa.me/{{$data->nohp}}" target="_blank" role="button" >{{$data->nohp}}</a>
+                            </div>
+                            </td>
+                            <td>{{$data->email}}</td>
                             <td>{{$data->action}}
                                 <div class="btn-group mb-1">
-                                    <a href="/show/{{$data->id}}" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
-                                    <a href="/show/{{$data->id}}" class="btn btn-outline-warning">Edit</a>
+                                    <a href="guru/show/{{$data->id}}" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
+                                    <a href="guru/show/{{$data->id}}" class="btn btn-outline-warning">Edit</a>
                                 </div>
                                 <div class="btn-group mb-1">
                                     
